@@ -1,5 +1,13 @@
 # Learning to Juggle, taught by `/teach`
 
+### ▶️ [**Open the live lesson →**](https://az9713.github.io/teach-juggling-skill/)
+
+The lesson is published as a live, interactive web page via GitHub Pages:
+**https://az9713.github.io/teach-juggling-skill/**
+(includes the throw-arc diagram and the tap-to-count "20 clean throws" self-check).
+
+---
+
 This repository is the **teaching workspace** produced by running Matt Pocock's
 [`/teach`](https://github.com/mattpocock/skills) skill inside Claude Code, with the request:
 
