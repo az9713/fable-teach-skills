@@ -2,18 +2,130 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; url=lessons/0001-the-one-ball-throw.html">
-<title>Learn to Juggle — taught by /teach</title>
-<link rel="canonical" href="lessons/0001-the-one-ball-throw.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fable-teach-skills — a /teach stress-test collection</title>
 <style>
-  body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;
-    background:#fbf7f0;color:#1c1a17;
-    font:18px/1.6 ui-sans-serif,system-ui,-apple-system,sans-serif}
-  a{color:#d6531f}
+  :root{
+    --ink:#1c1a17; --muted:#6b6257; --paper:#fbf7f0; --rule:#e7ddcd;
+    --accent:#d6531f; --accent2:#b8860b; --card:#ffffff;
+    --shadow:0 14px 44px rgba(60,40,20,.12);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(1100px 520px at 50% -12%,#fff 0%,var(--paper) 60%);
+    color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:64px 24px 96px}
+  .kicker{letter-spacing:.34em;text-transform:uppercase;font-size:.72rem;color:var(--accent);
+    font-weight:800}
+  h1{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:2.8rem;line-height:1.08;
+    margin:.18em 0 .15em;letter-spacing:-.01em}
+  h1 code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82em;
+    background:#f0e7d6;padding:.06em .25em;border-radius:8px;color:#7a3a14}
+  .lead{font-size:1.18rem;color:var(--muted);max-width:62ch;margin:.3em 0 0}
+  .lead b{color:var(--ink)}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+  .chip{font-size:.8rem;font-weight:600;color:#5a4a32;background:#fff;border:1px solid var(--rule);
+    border-radius:999px;padding:6px 14px}
+  .chip b{color:var(--accent2)}
+
+  h2{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.05rem;letter-spacing:.02em;
+    text-transform:uppercase;color:var(--muted);margin:48px 0 14px;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--rule);border-radius:20px;padding:26px 24px;box-shadow:var(--shadow);
+    transition:transform .16s,box-shadow .16s;position:relative;overflow:hidden}
+  a.card:hover{transform:translateY(-4px);box-shadow:0 22px 60px rgba(60,40,20,.18)}
+  a.card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  .emoji{font-size:2.6rem;line-height:1}
+  .card h3{font-family:"Iowan Old Style",Palatino,Georgia,serif;font-size:1.55rem;margin:.35em 0 .1em}
+  .req{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;color:#7a3a14;
+    background:#f6efe2;border-radius:8px;padding:.18em .5em;display:inline-block;margin:.2em 0 .6em}
+  .card p{margin:.2em 0 .8em;color:var(--muted);font-size:.97rem}
+  .go{font-weight:700;color:var(--accent);font-size:.92rem}
+  .go::after{content:" →";transition:margin .16s}
+  a.card:hover .go::after{margin-left:4px}
+
+  .soon{border-style:dashed;box-shadow:none;background:transparent;display:flex;
+    flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    color:var(--muted);min-height:180px}
+  .soon::after{display:none}
+  .soon .emoji{opacity:.4}
+
+  .about{margin-top:52px;background:#fff;border:1px solid var(--rule);border-radius:18px;
+    padding:24px 26px;box-shadow:var(--shadow)}
+  .about h2{margin-top:0}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:6px}
+  .pillar{border-left:3px solid var(--accent2);padding:2px 0 2px 12px}
+  .pillar b{display:block;color:var(--ink)}
+  .pillar span{font-size:.9rem;color:var(--muted)}
+  footer{margin-top:50px;border-top:1px solid var(--rule);padding-top:18px;color:#8c8270;
+    font-size:.84rem;text-align:center}
+  footer a{color:var(--accent)}
 </style>
 </head>
 <body>
-  <p>Loading your juggling lesson… if it doesn't open,
-     <a href="lessons/0001-the-one-ball-throw.html">click here</a>.</p>
+<div class="wrap">
+
+  <div class="kicker">A /teach stress-test collection</div>
+  <h1><code>fable-teach-skills</code></h1>
+  <p class="lead">
+    One slash command — <b>/teach</b> — pointed at wildly different subjects, to see how well it
+    turns a single request into a structured, mission-grounded curriculum. Each card below is an
+    <b>independent, self-contained teaching workspace</b>.
+  </p>
+  <div class="meta">
+    <span class="chip">Skill: <b>/teach</b> · Matt Pocock</span>
+    <span class="chip">Model: <b>Claude Fable 5</b></span>
+    <span class="chip">Built in <b>Claude Code</b></span>
+  </div>
+
+  <h2>Domains</h2>
+  <div class="grid">
+
+    <a class="card" href="juggling/">
+      <div class="emoji">🤹</div>
+      <h3>Juggling</h3>
+      <div class="req">/teach how to juggle 3 balls</div>
+      <p>Land a clean three-ball cascade as a low-pressure party trick. Lesson 1: the single-ball throw, with a tap-to-count self-check.</p>
+      <span class="go">Open lesson</span>
+    </a>
+
+    <a class="card" href="singing/">
+      <div class="emoji">🎵</div>
+      <h3>Singing</h3>
+      <div class="req">/teach how to sing like Luciano Pavarotti</div>
+      <p>Sing one iconic tenor aria, proudly. Lesson 1: the appoggio breath — Pavarotti's "stay in the inhale", with a breathing pacer &amp; steady-hiss timer.</p>
+      <span class="go">Open lesson</span>
+    </a>
+
+    <div class="card soon">
+      <div class="emoji">➕</div>
+      <h3 style="font-size:1.2rem">More to come</h3>
+      <p>The next stress test drops a new domain folder here.</p>
+    </div>
+
+  </div>
+
+  <div class="about">
+    <h2>What /teach does</h2>
+    <p style="color:var(--muted);margin-top:0">
+      It treats the working directory as a <b style="color:var(--ink)">stateful learning workspace</b>
+      that persists across sessions, anchored to a single <b style="color:var(--ink)">mission</b> —
+      the real reason the learner cares. Deep learning, it argues, needs three things:
+    </p>
+    <div class="pillars">
+      <div class="pillar"><b>Knowledge</b><span>From high-trust sources, never the model's memory.</span></div>
+      <div class="pillar"><b>Skills</b><span>Acquired through tight, interactive feedback loops.</span></div>
+      <div class="pillar"><b>Wisdom</b><span>Tested against real practitioners &amp; communities.</span></div>
+    </div>
+  </div>
+
+  <footer>
+    Teaching method: <a href="https://github.com/mattpocock/skills" target="_blank" rel="noopener">/teach by Matt Pocock</a>
+    · Generated in <a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a> with Claude Fable 5.
+  </footer>
+</div>
 </body>
 </html>

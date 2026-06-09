@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 · The Appoggio Breath — Sing Like Pavarotti</title>
+<style>
+  :root{
+    --ink:#2b2018; --paper:#fbf6ee; --paper2:#f3e8d6;
+    --burgundy:#6e1423; --burgundy-soft:#8c2733;
+    --gold:#b8860b; --gold-soft:#caa64a;
+    --green:#3f7d4e; --rule:#e3d4ba;
+    --shadow:0 12px 40px rgba(72,42,20,.14);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:radial-gradient(1200px 600px at 50% -10%,#fff8ec 0%,var(--paper) 55%);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:48px 24px 96px}
+  .kicker{
+    letter-spacing:.32em; text-transform:uppercase; font-size:.72rem;
+    color:var(--burgundy); font-weight:700; font-family:system-ui,sans-serif;
+  }
+  h1{font-size:2.5rem; line-height:1.1; margin:.25em 0 .1em; letter-spacing:-.01em}
+  h1 .em{color:var(--burgundy)}
+  .sub{font-size:1.18rem; color:#5e4d3a; margin:.2em 0 0; font-style:italic}
+  .mission{
+    margin:28px 0 8px; padding:14px 18px; border-left:4px solid var(--gold);
+    background:linear-gradient(90deg,rgba(184,134,11,.10),transparent);
+    font-size:.98rem; border-radius:0 10px 10px 0;
+  }
+  .mission b{color:var(--burgundy)}
+  h2{font-size:1.5rem; margin:2.4em 0 .4em; letter-spacing:-.01em}
+  h2 .n{
+    display:inline-grid; place-items:center; width:1.5em; height:1.5em; margin-right:.4em;
+    background:var(--burgundy); color:#fff; border-radius:50%; font-size:.85em;
+    font-family:system-ui,sans-serif; vertical-align:.08em;
+  }
+  h3{font-size:1.12rem; margin:1.5em 0 .3em; color:var(--burgundy-soft)}
+  p{margin:.7em 0}
+  .quote{
+    margin:1.4em 0; padding:22px 26px; background:#fff; border-radius:14px;
+    box-shadow:var(--shadow); border:1px solid var(--rule); position:relative;
+  }
+  .quote::before{
+    content:"\201C"; position:absolute; top:-.18em; left:.18em; font-size:4rem;
+    color:var(--gold-soft); opacity:.5; font-family:Georgia,serif;
+  }
+  .quote p{font-size:1.16rem; font-style:italic; margin:.2em 0 .5em; padding-left:.6em}
+  .quote .who{font-style:normal; font-size:.92rem; color:#6b5a44; font-family:system-ui,sans-serif}
+  a{color:var(--burgundy); text-underline-offset:3px; text-decoration-color:var(--gold-soft)}
+  .cite{font-size:.78em; vertical-align:super; color:var(--burgundy);
+    font-family:system-ui,sans-serif; text-decoration:none; font-weight:700; padding:0 .15em}
+  .cite:hover{background:var(--gold-soft); color:#fff; border-radius:4px}
+
+  .card{
+    background:#fff; border:1px solid var(--rule); border-radius:18px;
+    box-shadow:var(--shadow); padding:26px; margin:1.6em 0;
+  }
+  .card h3{margin-top:0}
+
+  /* Breathing pacer */
+  .stage{display:grid; place-items:center; gap:6px; padding:10px 0 4px}
+  .orbwrap{position:relative; width:230px; height:230px; display:grid; place-items:center}
+  .ring{
+    position:absolute; inset:0; border-radius:50%;
+    border:2px dashed var(--rule);
+  }
+  .orb{
+    width:90px; height:90px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#9c2b3a,var(--burgundy) 70%);
+    box-shadow:0 10px 30px rgba(110,20,35,.45), inset 0 0 30px rgba(255,255,255,.12);
+    transition:transform linear; transform:scale(1);
+  }
+  .phase{font-size:1.2rem; font-weight:700; min-height:1.5em; letter-spacing:.01em}
+  .phase.inhale{color:var(--green)} .phase.hold{color:var(--gold)} .phase.exhale{color:var(--burgundy)}
+  .count{font-family:system-ui,sans-serif; font-size:2.6rem; font-weight:800;
+    line-height:1; color:var(--ink); min-height:1.1em}
+  .cyclelabel{font-family:system-ui,sans-serif; font-size:.82rem; color:#7a6a54; letter-spacing:.04em}
+
+  .controls{display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center; margin-top:14px}
+  button{
+    font:600 .98rem/1 system-ui,sans-serif; cursor:pointer; border:none; border-radius:999px;
+    padding:12px 22px; background:var(--burgundy); color:#fff; transition:.15s; letter-spacing:.02em;
+  }
+  button:hover{background:var(--burgundy-soft); transform:translateY(-1px)}
+  button.ghost{background:#fff; color:var(--burgundy); border:1.5px solid var(--rule)}
+  button:disabled{opacity:.4; cursor:not-allowed; transform:none}
+  .seg{display:inline-flex; background:var(--paper2); border-radius:999px; padding:4px; gap:4px}
+  .seg button{background:transparent; color:var(--ink); padding:8px 16px}
+  .seg button.on{background:#fff; color:var(--burgundy); box-shadow:0 2px 8px rgba(0,0,0,.08)}
+
+  .done{margin-top:14px; text-align:center; font-weight:700; color:var(--green);
+    font-family:system-ui,sans-serif; min-height:1.4em}
+
+  /* Hiss timer */
+  .timer{font-family:system-ui,sans-serif; font-size:3.6rem; font-weight:800; text-align:center;
+    color:var(--ink); letter-spacing:-.02em; margin:.2em 0}
+  .best{text-align:center; font-family:system-ui,sans-serif; color:#7a6a54; font-size:.9rem}
+  .best b{color:var(--burgundy); font-size:1.05rem}
+  .fb{margin-top:14px; padding:14px 16px; border-radius:12px; background:var(--paper2);
+    font-size:.96rem; min-height:1.4em; display:none}
+  .fb.show{display:block}
+  .rating{display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap}
+
+  .checklist{list-style:none; padding:0; margin:.6em 0}
+  .checklist li{padding:8px 0 8px 34px; position:relative; border-bottom:1px dashed var(--rule)}
+  .checklist li::before{content:"\2713"; position:absolute; left:4px; top:8px;
+    color:var(--green); font-weight:800}
+  .warn{background:linear-gradient(90deg,rgba(110,20,35,.08),transparent);
+    border-left:4px solid var(--burgundy); padding:12px 16px; border-radius:0 10px 10px 0; font-size:.95rem}
+  .teacher{margin-top:40px; padding:22px 24px; background:var(--burgundy); color:#fdf3e3;
+    border-radius:16px; box-shadow:var(--shadow)}
+  .teacher h3{color:#ffe9c2; margin-top:0}
+  .teacher a{color:#ffe9c2}
+  .sources{font-size:.86rem; color:#6b5a44; font-family:system-ui,sans-serif}
+  .sources h3{font-family:inherit}
+  .sources li{margin:.3em 0}
+  footer{margin-top:50px; padding-top:18px; border-top:1px solid var(--rule);
+    font-family:system-ui,sans-serif; font-size:.8rem; color:#8a7a62; text-align:center}
+  .next{margin-top:8px; padding:16px 18px; border:1.5px dashed var(--gold-soft);
+    border-radius:12px; background:rgba(184,134,11,.06); font-size:.96rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Lesson 1 · Foundation</div>
+  <h1>The <span class="em">Appoggio</span> Breath</h1>
+  <p class="sub">"Stay in the inhale." The one habit underneath the whole Pavarotti sound.</p>
+
+  <div class="mission">
+    <b>Why this, first?</b> Your mission is to sing one iconic aria with a tone you're proud of —
+    steady, not breathy, not running out of air. Every bit of that rests on <i>breath support</i>.
+    It's also <b>quiet to practise</b>, which fits your "keep the volume modest" constraint perfectly.
+    No high notes today. Just the engine.
+  </div>
+
+  <h2><span class="n">1</span>What Pavarotti actually did</h2>
+  <p>
+    Pavarotti was endlessly asked for his secret. His answer was never a trick — it was breath.
+    Asked to describe it plainly, he said he would take a deep breath, let the diaphragm drop, and
+    then do one strange-sounding thing:
+  </p>
+  <div class="quote">
+    <p>Take a deep breath, let the diaphragm lower &mdash; then <b>remain in the inhalation
+    position while singing</b>. Never let the air rush out abruptly; keep enough air compression
+    under the cords for them to work.</p>
+    <div class="who">— Luciano Pavarotti, paraphrased from <i>Great Singers on Great Singing</i> by Jerome Hines <a class="cite" href="https://myscena.org/adrian-rodriguez/pavarotti-genius-forever-entertaining-even-experts/" target="_blank" rel="noopener">1</a></div>
+  </div>
+  <p>
+    That's it. That's the famous "support". Teachers call it <b>appoggio</b> — Italian for
+    <i>to lean on</i>. The 1890 definition is "the support afforded to the voice by the muscles of
+    the chest, especially the diaphragm"<a class="cite" href="https://www.voicescience.org/lexicon/appoggio/" target="_blank" rel="noopener">2</a>.
+    The feeling is simple to name even if it takes time to own:
+    <b>as you sing out, your body keeps the posture of breathing&nbsp;in.</b> You resist the collapse.
+    The air leaves slowly and under control instead of dumping out.
+  </p>
+
+  <h2><span class="n">2</span>Find the breath (30 seconds)</h2>
+  <p>
+    Before we lean on the breath, make sure it's going to the right place — <b>low</b>, into the belly
+    and lower ribs, not up into the shoulders.
+  </p>
+  <ul class="checklist">
+    <li>Stand or sit tall. Rest one hand on your <b>belly</b>, one on your <b>upper chest</b>.</li>
+    <li>Breathe in slowly through the nose. The <b>belly hand moves out first</b>; the chest hand barely moves.</li>
+    <li>Shoulders stay <b>down and still</b>. No heaving up.</li>
+    <li>If only the chest hand rose — try again, imagine breathing "into your back pockets".<a class="cite" href="https://www.singwise.com/articles/correct-breathing-and-support-for-singing" target="_blank" rel="noopener">3</a></li>
+  </ul>
+
+  <h2><span class="n">3</span>The Farinelli pacer — train the "lean"</h2>
+  <p>
+    This is the classic <b>Farinelli exercise</b>: inhale, <i>hold the inhale posture</i>, then release
+    slowly &mdash; equal counts. It directly trains appoggio: the held middle is you "staying in the
+    inhale".<a class="cite" href="https://www.voicescienceworks.org/appoggio.html" target="_blank" rel="noopener">4</a>
+    Follow the orb. Breathe <b>in</b> as it grows, <b>stay</b> while it floats, breathe <b>out</b> slowly as it shrinks.
+  </p>
+
+  <div class="card">
+    <div class="stage">
+      <div class="cyclelabel" id="cyclelabel">Cycle 0 / 4</div>
+      <div class="orbwrap">
+        <div class="ring"></div>
+        <div class="orb" id="orb"></div>
+      </div>
+      <div class="phase" id="phase">Ready when you are</div>
+      <div class="count" id="count"></div>
+    </div>
+    <div class="controls">
+      <div class="seg" id="level" title="Counts per phase">
+        <button data-c="4" class="on">4 counts</button>
+        <button data-c="6">6 counts</button>
+        <button data-c="8">8 counts</button>
+      </div>
+    </div>
+    <div class="controls" style="margin-top:12px">
+      <button id="startBtn">Begin breathing</button>
+      <button id="stopBtn" class="ghost" disabled>Stop</button>
+    </div>
+    <div class="done" id="pacerDone"></div>
+  </div>
+  <div class="warn">
+    <b>Stay relaxed.</b> The "hold" is a gentle suspension, not a clench — throat open, no squeezing.
+    Feel slightly dizzy? Stop, breathe normally. This should feel calm, never strained.
+  </div>
+
+  <h2><span class="n">4</span>The win: a steady hiss</h2>
+  <p>
+    Now we put the lean to work on real airflow — still <b>quiet</b>. Take a low appoggio breath, then
+    hiss a thin, even <b>"sssss"</b>. The goal isn't loud or long for its own sake — it's
+    <b>steady</b>: the same gentle pressure from start to finish, because you're resisting the collapse.
+    A wobbling or fading hiss = the support let go.
+  </p>
+  <div class="card">
+    <div class="timer" id="hissTime">0.0s</div>
+    <div class="best">Steadiest-felt best: <b id="hissBest">—</b></div>
+    <div class="controls" style="margin-top:16px">
+      <button id="hissStart">Start hiss</button>
+      <button id="hissStop" class="ghost" disabled>I ran out / wobbled</button>
+    </div>
+    <div class="rating" id="hissRating" style="display:none">
+      <span style="align-self:center;font-family:system-ui,sans-serif;font-size:.9rem;color:#7a6a54">Was it steady the whole way?</span>
+      <button class="ghost" data-r="steady">Yes, even</button>
+      <button class="ghost" data-r="faded">Faded at the end</button>
+      <button class="ghost" data-r="wobbled">Wobbled</button>
+    </div>
+    <div class="fb" id="hissFb"></div>
+  </div>
+  <p style="font-size:.95rem;color:#5e4d3a">
+    <b>Aim for the feeling, not the number.</b> A calm, even 8–12 seconds with steady pressure beats a
+    strained 20. As support improves, steadiness comes first, length follows.
+  </p>
+
+  <h2><span class="n">5</span>Today's tiny practice</h2>
+  <ul class="checklist">
+    <li><b>3 rounds</b> of the Farinelli pacer at 4 counts (work toward 6).</li>
+    <li><b>4–5 steady hisses</b>, chasing "even", not "long".</li>
+    <li>Total: about <b>5 minutes</b>. Do it once or twice today. That's a real win banked.</li>
+  </ul>
+  <div class="next">
+    <b>Where this leads →</b> Once the lean feels natural, Lesson 2 turns this exact breath into your
+    first <i>sung</i> sound — a quiet, resonant hum on a comfortable pitch (still neighbour-friendly).
+    That's the bridge from "breath" to "tone", and the first real step toward your aria.
+  </div>
+
+  <div class="teacher">
+    <h3>I'm your teacher — ask me anything</h3>
+    <p style="margin:.3em 0">
+      Stuck on where the breath is going? Not sure if your hiss is "steady"? Want me to help you
+      <b>pick the aria</b> (I lean toward <i>O Sole Mio</i> as a gentler first target than <i>Nessun Dorma</i>),
+      or hear how this should sound? Just tell me in chat. Bring me what happened — "I got dizzy",
+      "my chest still rises", "I could only manage 4 seconds" — and we'll adjust the next lesson to you.
+    </p>
+  </div>
+
+  <div class="sources">
+    <h3>Sources</h3>
+    <ol>
+      <li><a href="https://myscena.org/adrian-rodriguez/pavarotti-genius-forever-entertaining-even-experts/" target="_blank" rel="noopener">La Scena Musicale — Pavarotti: Genius Is Forever</a> (Pavarotti on breath / appoggio, via Jerome Hines, <i>Great Singers on Great Singing</i>).</li>
+      <li><a href="https://www.voicescience.org/lexicon/appoggio/" target="_blank" rel="noopener">Voice Science — Appoggio</a> (Lamperti 1890 definition; "lean on the breath").</li>
+      <li><a href="https://www.singwise.com/articles/correct-breathing-and-support-for-singing" target="_blank" rel="noopener">SingWise — Correct Breathing and "Support" for Singing</a>.</li>
+      <li><a href="https://www.voicescienceworks.org/appoggio.html" target="_blank" rel="noopener">VoiceScienceWorks — Appoggio</a> (the inspiratory hold / Farinelli idea).</li>
+    </ol>
+  </div>
+
+  <footer>
+    Sing Like Pavarotti · Lesson 1 of an ongoing journey · Built for modest-volume, beginner practice.<br>
+    Vocal health first — never push or strain. If anything hurts, stop.
+  </footer>
+</div>
+
+<script>
+(function(){
+  // ---------- Farinelli breathing pacer ----------
+  var orb = document.getElementById('orb');
+  var phaseEl = document.getElementById('phase');
+  var countEl = document.getElementById('count');
+  var cycleEl = document.getElementById('cyclelabel');
+  var startBtn = document.getElementById('startBtn');
+  var stopBtn = document.getElementById('stopBtn');
+  var doneEl = document.getElementById('pacerDone');
+  var levelBox = document.getElementById('level');
+
+  var counts = 4;          // seconds per phase
+  var TOTAL_CYCLES = 4;
+  var running = false;
+  var tickId = null;
+  var phaseTimeout = null;
+
+  levelBox.addEventListener('click', function(e){
+    if(e.target.tagName!=='BUTTON' || running) return;
+    [].forEach.call(levelBox.children, function(b){ b.classList.remove('on'); });
+    e.target.classList.add('on');
+    counts = parseInt(e.target.getAttribute('data-c'),10);
+    cycleEl.textContent = 'Cycle 0 / ' + TOTAL_CYCLES;
+  });
+
+  var PHASES = [
+    {name:'Breathe in — low, into the belly', cls:'inhale', scale:2.05},
+    {name:'Stay in the inhale — gentle hold', cls:'hold',   scale:2.05},
+    {name:'Sing the air out — slow & even',   cls:'exhale', scale:1.0}
+  ];
+
+  function setOrb(scale, secs){
+    orb.style.transitionDuration = secs + 's';
+    orb.style.transform = 'scale(' + scale + ')';
+  }
+
+  function runCycle(cycleIndex){
+    if(cycleIndex >= TOTAL_CYCLES){ finish(); return; }
+    cycleEl.textContent = 'Cycle ' + (cycleIndex+1) + ' / ' + TOTAL_CYCLES;
+    var pi = 0;
+    function doPhase(){
+      if(!running) return;
+      var p = PHASES[pi];
+      phaseEl.textContent = p.name;
+      phaseEl.className = 'phase ' + p.cls;
+      setOrb(p.scale, counts);
+      var remaining = counts;
+      countEl.textContent = remaining;
+      clearInterval(tickId);
+      tickId = setInterval(function(){
+        remaining -= 1;
+        countEl.textContent = remaining > 0 ? remaining : '';
+        if(remaining <= 0){ clearInterval(tickId); }
+      }, 1000);
+      phaseTimeout = setTimeout(function(){
+        pi += 1;
+        if(pi < PHASES.length){ doPhase(); }
+        else { runCycle(cycleIndex+1); }
+      }, counts*1000);
+    }
+    doPhase();
+  }
+
+  function start(){
+    running = true;
+    doneEl.textContent = '';
+    startBtn.disabled = true; stopBtn.disabled = false;
+    [].forEach.call(levelBox.children, function(b){ b.disabled = true; });
+    runCycle(0);
+  }
+  function cleanup(){
+    clearInterval(tickId); clearTimeout(phaseTimeout);
+    running = false;
+    startBtn.disabled = false; stopBtn.disabled = true;
+    [].forEach.call(levelBox.children, function(b){ b.disabled = false; });
+    setOrb(1.0, 0.6);
+  }
+  function finish(){
+    cleanup();
+    phaseEl.textContent = 'Beautifully done.';
+    phaseEl.className = 'phase';
+    countEl.textContent = '';
+    doneEl.textContent = '✓ ' + TOTAL_CYCLES + ' calm cycles. That posture — staying in the inhale — is appoggio.';
+  }
+  function stop(){
+    cleanup();
+    phaseEl.textContent = 'Stopped — breathe normally.';
+    phaseEl.className = 'phase'; countEl.textContent = '';
+    doneEl.textContent = '';
+  }
+  startBtn.addEventListener('click', start);
+  stopBtn.addEventListener('click', stop);
+
+  // ---------- Steady hiss timer ----------
+  var hissTime = document.getElementById('hissTime');
+  var hissStart = document.getElementById('hissStart');
+  var hissStop = document.getElementById('hissStop');
+  var hissBest = document.getElementById('hissBest');
+  var hissFb = document.getElementById('hissFb');
+  var hissRating = document.getElementById('hissRating');
+  var hStart = 0, hId = null, lastDur = 0, best = 0;
+
+  function fmt(s){ return s.toFixed(1) + 's'; }
+
+  hissStart.addEventListener('click', function(){
+    hStart = performance.now();
+    hissStart.disabled = true; hissStop.disabled = false;
+    hissFb.classList.remove('show'); hissRating.style.display='none';
+    hId = setInterval(function(){
+      hissTime.textContent = fmt((performance.now()-hStart)/1000);
+    }, 100);
+  });
+
+  hissStop.addEventListener('click', function(){
+    clearInterval(hId);
+    lastDur = (performance.now()-hStart)/1000;
+    hissTime.textContent = fmt(lastDur);
+    hissStart.disabled = false; hissStop.disabled = true;
+    hissRating.style.display = 'flex';
+  });
+
+  document.getElementById('hissRating').addEventListener('click', function(e){
+    if(e.target.tagName!=='BUTTON') return;
+    var r = e.target.getAttribute('data-r');
+    var msg = '';
+    if(r==='steady'){
+      if(lastDur > best){ best = lastDur; hissBest.textContent = fmt(best) + ' · even'; }
+      msg = '★ That\'s the goal — even pressure start to finish. Your appoggio held. ' +
+            'Next time, try to keep that exact steadiness for one count longer.';
+    } else if(r==='faded'){
+      msg = 'Fading at the end means the support collapsed as the air got low. ' +
+            'Stop a little earlier — end while it\'s still steady. Better a clean 8s than a limp 14s.';
+    } else {
+      msg = 'A wobble is the breath pressure surging and dropping. Re-set: low breath, ' +
+            '"stay in the inhale", and let the air out in one calm, thin thread. Slower is steadier.';
+    }
+    hissFb.textContent = msg;
+    hissFb.classList.add('show');
+    hissRating.style.display='none';
+  });
+})();
+</script>
+</body>
+</html>
