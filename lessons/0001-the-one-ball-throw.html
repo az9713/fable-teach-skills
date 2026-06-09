@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1 · The One-Ball Throw</title>
+<style>
+  :root{
+    --ink:#1c1a17; --paper:#fbf7f0; --accent:#d6531f; --accent2:#1f7a8c;
+    --soft:#efe7d8; --line:#e0d6c4; --good:#2e7d32;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font:18px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 96px}
+  .kicker{
+    font:600 13px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 14px
+  }
+  h1{font-size:2.6rem;line-height:1.08;margin:0 0 10px;letter-spacing:-.01em}
+  .sub{font-size:1.15rem;color:#6b6358;margin:0 0 36px}
+  h2{font-size:1.5rem;margin:46px 0 14px;letter-spacing:-.01em}
+  .mission{
+    background:var(--soft);border-left:4px solid var(--accent2);
+    padding:16px 20px;border-radius:0 10px 10px 0;font-size:1rem;margin:0 0 8px
+  }
+  .mission b{color:var(--accent2)}
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:18px 0}
+  ol.steps li{
+    counter-increment:s;position:relative;padding:14px 0 14px 56px;
+    border-top:1px solid var(--line)
+  }
+  ol.steps li:before{
+    content:counter(s);position:absolute;left:0;top:12px;
+    width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;
+    font:700 18px/38px ui-sans-serif,system-ui,sans-serif;text-align:center
+  }
+  .diagram{margin:30px 0;text-align:center}
+  .diagram svg{max-width:100%;height:auto}
+  .cap{font:500 14px/1.4 ui-sans-serif,system-ui,sans-serif;color:#8a8073;margin-top:8px}
+  .mistakes{background:#fff4ef;border:1px solid #f3d3c3;border-radius:12px;padding:8px 22px;margin:20px 0}
+  .mistakes h3{color:var(--accent);font-size:1.05rem;margin:16px 0 6px}
+  .mistakes p{margin:0 0 14px;font-size:.98rem}
+  .fix{color:var(--good);font-weight:600}
+  .checkbox{
+    background:var(--accent2);color:#fff;border-radius:14px;padding:24px 26px;margin:34px 0;
+    font-family:ui-sans-serif,system-ui,sans-serif
+  }
+  .checkbox h2{color:#fff;margin:0 0 6px;font-size:1.35rem}
+  .checkbox p{margin:0 0 18px;opacity:.9;font-size:1rem}
+  .counter{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .count{font:800 56px/1 ui-sans-serif,system-ui,sans-serif;min-width:90px;text-align:center}
+  .btns{display:flex;gap:10px}
+  button{
+    font:600 16px ui-sans-serif,system-ui,sans-serif;border:0;border-radius:10px;
+    padding:14px 20px;cursor:pointer;background:#fff;color:var(--accent2);transition:transform .06s
+  }
+  button:active{transform:scale(.94)}
+  button.minus{background:rgba(255,255,255,.25);color:#fff}
+  button.reset{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .verdict{margin-top:16px;font-weight:600;font-size:1.05rem;min-height:1.4em}
+  .cite{font-size:.82rem;color:#8a8073;vertical-align:super;text-decoration:none;border-bottom:1px dotted}
+  .sources{font:14px/1.6 ui-sans-serif,system-ui,sans-serif;color:#6b6358;border-top:1px solid var(--line);margin-top:50px;padding-top:18px}
+  .sources a{color:var(--accent2)}
+  .teacher{
+    font:500 15px/1.6 ui-sans-serif,system-ui,sans-serif;background:var(--soft);
+    border-radius:12px;padding:18px 22px;margin:30px 0 0
+  }
+  .teacher b{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Lesson 1 · Juggling</p>
+  <h1>The One-Ball Throw</h1>
+  <p class="sub">Master one throw and you've secretly learned the whole cascade — it's just this, alternating hands.</p>
+
+  <div class="mission">
+    <b>Why this, first?</b> Your mission is a relaxed 3-ball party trick. Every dropped-ball-chasing disaster traces back to a sloppy throw. Nail a clean, repeatable arc with <em>one</em> ball today and the rest is mostly stacking. Takes ~10 minutes.
+  </div>
+
+  <h2>Set up your body</h2>
+  <ol class="steps">
+    <li><b>Stand tall, feet planted</b> shoulder-width apart. Pick a spot and <b>don't move your feet</b> for the whole drill. (Pro move: stand facing a wall or your bed — it stops you drifting forward and saves your back from bending to pick up.)</li>
+    <li><b>Elbows in, bent ~90°</b>, tucked near your ribs. Forearms forward, <b>palms up</b> like you're holding two small trays.<a class="cite" href="#s2" title="Troposfera">2</a></li>
+    <li><b>One bean bag</b> in your dominant hand. That's all you need this lesson.</li>
+  </ol>
+
+  <h2>The throw (the scoop)</h2>
+  <ol class="steps">
+    <li><b>Scoop, don't flick.</b> Dip the ball slightly inward toward your belly, then throw upward with your <b>forearm</b> — not a wrist flick, not your whole arm.<a class="cite" href="#s2" title="Troposfera">2</a></li>
+    <li><b>Aim for two points</b> in the air: about shoulder-width apart and <b>a little above the top of your head</b>. The ball travels in an arc from one point to the other.<a class="cite" href="#s1" title="Library of Juggling">1</a></li>
+    <li><b>Let it land in the other hand</b> without reaching out to grab it. The throw does the work; the catching hand just waits underneath, palm up.</li>
+    <li><b>Throw back the other way</b> with the same scoop. Left-to-right, right-to-left, slow and even. <b>Your eyes watch the peaks</b>, not your hands.</li>
+  </ol>
+
+  <div class="diagram" aria-label="Arc of a single throw from right hand to left hand, peaking above the head">
+    <svg viewBox="0 0 420 240" role="img">
+      <!-- head reference line -->
+      <line x1="40" y1="70" x2="380" y2="70" stroke="#e0d6c4" stroke-width="2" stroke-dasharray="5 6"/>
+      <text x="384" y="74" font-family="ui-sans-serif,system-ui,sans-serif" font-size="12" fill="#b3a68e">a bit above your head</text>
+      <!-- arc -->
+      <path d="M90,190 Q210,20 330,190" fill="none" stroke="#d6531f" stroke-width="3"/>
+      <!-- ball at peak -->
+      <circle cx="210" cy="62" r="11" fill="#d6531f"/>
+      <!-- hands -->
+      <g font-family="ui-sans-serif,system-ui,sans-serif" font-size="13" fill="#1c1a17">
+        <circle cx="90" cy="195" r="7" fill="#1f7a8c"/>
+        <text x="62" y="222">right</text>
+        <circle cx="330" cy="195" r="7" fill="#1f7a8c"/>
+        <text x="312" y="222">left</text>
+      </g>
+      <!-- arrows -->
+      <text x="120" y="120" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" fill="#d6531f">↗</text>
+      <text x="288" y="120" font-family="ui-sans-serif,system-ui,sans-serif" font-size="22" fill="#d6531f">↘</text>
+    </svg>
+    <div class="cap">One throw = one arc, peaking just above your head, landing in the opposite hand. The cascade is only ever this, repeated.</div>
+  </div>
+
+  <div class="mistakes">
+    <h3>If the ball drifts forward and you step to catch it…</h3>
+    <p>You're throwing <em>out</em>, not <em>up</em>. <span class="fix">Fix:</span> face a wall ~30 cm away — the ball physically can't go forward. Throw so it grazes up the wall.</p>
+    <h3>If your throws are wildly different heights…</h3>
+    <p>You're using your wrist or shoulder. <span class="fix">Fix:</span> freeze your upper arm against your ribs and move only the forearm, like a hinge.<a class="cite" href="#s2" title="Troposfera">2</a></p>
+    <h3>If your non-dominant hand is hopeless…</h3>
+    <p>Totally normal — even experienced jugglers note the weak hand is the bottleneck. <span class="fix">Fix:</span> spend extra reps throwing <em>from</em> the weak hand. It catches up fast.<a class="cite" href="#s1" title="Library of Juggling">1</a></p>
+  </div>
+
+  <div class="checkbox">
+    <h2>✓ Self-check: 20 clean throws</h2>
+    <p>Throw back and forth. A throw counts as <b>clean</b> if it peaks above your head AND lands in the other hand without you moving your feet. Tap + for each clean one. Drop or step? It's fine — just keep going; only count the clean arcs. Tap this in your browser as you practice.</p>
+    <div class="counter">
+      <div class="count" id="count">0</div>
+      <div class="btns">
+        <button id="plus">+ clean throw</button>
+        <button class="minus" id="minus">−</button>
+        <button class="reset" id="reset">reset</button>
+      </div>
+    </div>
+    <div class="verdict" id="verdict">Goal: 20. You've got this.</div>
+  </div>
+
+  <div class="teacher">
+    <b>I'm your teacher — ask me anything.</b> Stuck on the scoop? Weak hand refusing to cooperate? Not sure if your arc is "high enough"? Come back to the chat and describe what's happening (or tell me your clean-throw count) and I'll diagnose it and set your next lesson. When 20 clean throws feels easy, say <em>"ready for two balls"</em>.
+  </div>
+
+  <div class="sources">
+    <strong>Sources</strong>
+    <ol>
+      <li id="s1"><a href="https://libraryofjuggling.com/Tricks/3balltricks/Cascade.html" target="_blank" rel="noopener">Library of Juggling — Three Ball Cascade</a></li>
+      <li id="s2"><a href="https://troposfera.xyz/en/blog/how-to-juggle-3-balls/" target="_blank" rel="noopener">Troposfera — How to juggle 3 balls, step by step</a></li>
+    </ol>
+  </div>
+
+</div>
+
+<script>
+  const countEl=document.getElementById('count');
+  const verdictEl=document.getElementById('verdict');
+  let n=0;
+  function render(){
+    countEl.textContent=n;
+    let msg='Goal: 20. You’ve got this.';
+    if(n>0&&n<8) msg='Nice — keep the arc even.';
+    else if(n>=8&&n<14) msg='Rhythm is forming. Eyes on the peaks.';
+    else if(n>=14&&n<20) msg='Almost there — relax your shoulders.';
+    else if(n>=20){ msg='🎉 Done! That’s the foundation. Tell your teacher "ready for two balls".'; verdictEl.style.color='#bfe3c0'; }
+    if(n<20) verdictEl.style.color='';
+    verdictEl.textContent=msg;
+  }
+  document.getElementById('plus').onclick=()=>{n++;render()};
+  document.getElementById('minus').onclick=()=>{n=Math.max(0,n-1);render()};
+  document.getElementById('reset').onclick=()=>{n=0;render()};
+  render();
+</script>
+</body>
+</html>
