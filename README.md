@@ -16,6 +16,7 @@ curriculum across very different subjects.
 |--------|---------|---------|-------------|
 | 🤹 [**Juggling**](./juggling/) | `/teach how to juggle 3 balls` | Land a 3-ball cascade as a party trick | [Lesson 1 →](https://az9713.github.io/fable-teach-skills/juggling/) |
 | 🎵 [**Singing**](./singing/) | `/teach how to sing like Luciano Pavarotti` | Sing one iconic tenor aria, proudly | [Lesson 1 →](https://az9713.github.io/fable-teach-skills/singing/) |
+| 📜 [**Tang poetry**](./tang-shi/) | `/teach me to write a "tang shi" like 唐詩三百首` | Compose a 律詩 worthy of the anthology | [Lesson 1 →](https://az9713.github.io/fable-teach-skills/tang-shi/) |
 
 > More domains will be added as further stress tests are run.
 

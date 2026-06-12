@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一課 · 平仄 — 詩的骨架 | 唐詩 /teach</title>
+<style>
+  :root{
+    --ink:#23201b; --muted:#6f6557; --paper:#faf5ec; --card:#fffdf8;
+    --rule:#e3d8c4; --cinnabar:#9e2b25; --jade:#2e6e5e; --gold:#9a7b2d;
+    --bad:#b3402f; --good:#2e6e5e;
+    --serif:"Source Han Serif TC","Noto Serif TC","Songti TC","PMingLiU","MingLiU",Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(900px 420px at 50% -10%, #fffdf6 0%, var(--paper) 65%);
+    color:var(--ink);font-family:var(--serif);line-height:1.85;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:780px;margin:0 auto;padding:56px 22px 110px}
+
+  .kicker{letter-spacing:.42em;text-transform:uppercase;font-size:.7rem;color:var(--cinnabar);
+    font-weight:700;font-family:ui-sans-serif,system-ui,sans-serif}
+  h1{font-size:2.4rem;margin:.2em 0 .1em;letter-spacing:.06em;line-height:1.25}
+  h1 .en{display:block;font-size:.95rem;color:var(--muted);letter-spacing:.04em;font-weight:400}
+  .lessonnum{color:var(--gold);font-size:.95rem;letter-spacing:.3em}
+
+  .mission{margin:26px 0 0;background:#f4ecdc;border-left:4px solid var(--gold);
+    border-radius:0 12px 12px 0;padding:14px 18px;font-size:.98rem;color:#5a4c33}
+  .mission b{color:var(--ink)}
+
+  h2{font-size:1.35rem;margin:54px 0 10px;letter-spacing:.12em;border-bottom:1px solid var(--rule);
+    padding-bottom:8px}
+  h2 .tag{font-size:.7rem;color:var(--cinnabar);letter-spacing:.34em;vertical-align:middle;
+    margin-left:10px;font-family:ui-sans-serif,system-ui,sans-serif;text-transform:uppercase}
+  h3{font-size:1.08rem;margin:26px 0 6px;letter-spacing:.08em;color:#4a3e2c}
+  p{margin:.5em 0}
+  .muted{color:var(--muted)}
+  a{color:var(--cinnabar)}
+  cite{font-style:normal;font-size:.85rem;color:var(--muted)}
+
+  .tones{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+  .tone{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px 16px;
+    text-align:center}
+  .tone .big{font-size:1.9rem;line-height:1.2}
+  .tone .lbl{font-size:.85rem;color:var(--muted)}
+  .tone.ping{border-color:#cfe0d8;background:#f3f8f5}
+  .tone.ze{border-color:#e7cfc6;background:#faf2ee}
+  .tone.ping .big{color:var(--jade)} .tone.ze .big{color:var(--cinnabar)}
+
+  .legend{display:flex;gap:22px;align-items:center;margin:14px 0;font-size:1.05rem}
+  .dot{font-size:1.3rem;vertical-align:-2px}
+  .ping-dot{color:var(--jade)} .ze-dot{color:var(--cinnabar)}
+
+  .callout{background:var(--card);border:1px solid var(--rule);border-radius:14px;
+    padding:16px 20px;margin:18px 0}
+  .callout.warn{border-color:#e0b9a6;background:#fbf1e9}
+  .callout b{color:var(--cinnabar)}
+  .rulebox{display:grid;gap:8px;margin:10px 0 0}
+  .rule{display:flex;gap:12px;align-items:baseline}
+  .rule .n{font-family:ui-sans-serif,system-ui,sans-serif;font-weight:800;color:var(--gold);
+    font-size:.85rem;min-width:1.4em}
+
+  /* ---- the poem exercise ---- */
+  .poem-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  .poem-title{font-size:1.5rem;letter-spacing:.2em}
+  .poem-title .author{font-size:.95rem;color:var(--muted);letter-spacing:.1em;margin-left:14px}
+  .grid{margin:18px auto 6px;display:flex;flex-direction:column;gap:10px;align-items:center}
+  .line{display:flex;gap:10px;align-items:center}
+  .char{width:74px;height:92px;border:1px solid var(--rule);border-radius:12px;background:var(--card);
+    cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:2px;transition:transform .1s, box-shadow .1s, border-color .1s;user-select:none;
+    font-family:var(--serif)}
+  .char:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(80,50,20,.12)}
+  .char .zi{font-size:2.05rem;line-height:1.15}
+  .char .mark{font-size:1.15rem;height:1.4em;line-height:1.4em;
+    font-family:ui-sans-serif,system-ui,sans-serif;color:#b9ad97}
+  .char.m-ping .mark{color:var(--jade)} .char.m-ze .mark{color:var(--cinnabar)}
+  .char.ok{border-color:#9cc3b3;background:#f1f8f4}
+  .char.no{border-color:#dfa593;background:#fbeee7}
+  .char.no .zi{color:var(--bad)}
+  .punct{font-size:1.5rem;color:#c9bda3;width:18px;text-align:center}
+
+  .controls{display:flex;gap:12px;justify-content:center;margin:20px 0 6px;flex-wrap:wrap}
+  button{font-family:var(--serif);font-size:1.02rem;letter-spacing:.18em;padding:10px 26px;
+    border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--ink);
+    cursor:pointer;transition:all .12s}
+  button:hover{border-color:var(--gold);box-shadow:0 6px 18px rgba(80,50,20,.12)}
+  button.primary{background:var(--cinnabar);border-color:var(--cinnabar);color:#fff}
+  button.primary:hover{background:#86231e}
+  #score{text-align:center;font-size:1.1rem;min-height:1.8em;margin-top:8px}
+  #score b{color:var(--cinnabar)}
+
+  .notes{margin-top:10px;display:none}
+  .notes.show{display:block}
+  .note{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--gold);
+    border-radius:0 12px 12px 0;padding:10px 16px;margin:10px 0;font-size:.97rem}
+  .note .zi{font-size:1.25rem;color:var(--cinnabar);margin-right:8px}
+  .note .cat{color:var(--gold);font-size:.85rem;margin-left:6px}
+
+  .rhyme{margin-top:26px;display:none}
+  .rhyme.show{display:block}
+  .rhymechars{font-size:1.6rem;letter-spacing:.35em;color:var(--jade)}
+
+  .next{margin-top:54px;background:#f4ecdc;border-radius:16px;padding:20px 24px}
+  .ask{margin-top:30px;border:1px dashed var(--gold);border-radius:14px;padding:14px 20px;
+    color:#6b5a36;font-size:.96rem;background:#fcf8ef}
+  footer{margin-top:46px;border-top:1px solid var(--rule);padding-top:14px;font-size:.85rem;
+    color:var(--muted)}
+  footer li{margin:.3em 0}
+  @media (max-width:640px){
+    .char{width:54px;height:72px} .char .zi{font-size:1.5rem}
+    .line{gap:6px} h1{font-size:1.9rem}
+  }
+  @media print{ .controls,.ask{display:none} body{background:#fff} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">唐詩 · /teach · lesson 0001</div>
+  <h1>平仄 — 詩的骨架
+    <span class="en">Píng &amp; zè: the tonal skeleton every 律詩 stands on</span>
+  </h1>
+  <div class="lessonnum">第一課 · 一技一課：辨平仄</div>
+
+  <div class="mission">
+    <b>任務連結：</b>你的目標是寫出一首《唐詩三百首》等級的<b>律詩</b>。律詩的一切規則 —
+    句式、黏對、押韻、對仗的聲律 — 都建立在每個字非平即仄的二分之上。
+    今天只練一件事：<b>看一個字，判其平仄</b>。判得準，後面的一切才有地基。
+  </div>
+
+  <h2>知 <span class="tag">Knowledge</span></h2>
+
+  <p>中古漢語有四聲：<b>平、上、去、入</b>。近體詩把它們折成兩類：</p>
+
+  <div class="tones">
+    <div class="tone ping"><div class="big">平</div><div class="lbl">平聲 — 平直悠長<br>記號 ○</div></div>
+    <div class="tone ze"><div class="big">仄</div><div class="lbl">上聲 — 記號 ●</div></div>
+    <div class="tone ze"><div class="big">仄</div><div class="lbl">去聲 — 記號 ●</div></div>
+    <div class="tone ze"><div class="big">仄</div><div class="lbl">入聲 — 短促急收<br>記號 ●</div></div>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot ping-dot">○</span> ＝ 平</span>
+    <span><span class="dot ze-dot">●</span> ＝ 仄（上、去、入）</span>
+  </div>
+
+  <h3>國語使用者的陷阱：入聲消失了</h3>
+  <p>
+    入聲在現代國語裡<b>整個消失</b>，原入聲字被打散分派到今天的四個聲調裡。
+    所以用國語讀音判平仄，有一套安全規則、和一個必須警惕的雷區：
+  </p>
+
+  <div class="callout">
+    <div class="rulebox">
+      <div class="rule"><span class="n">一</span>
+        <span>國語<b>三聲、四聲</b> → 必是<b style="color:var(--cinnabar)">仄</b>。（安全：上去入全在仄裡）</span></div>
+      <div class="rule"><span class="n">二</span>
+        <span>國語<b>一聲、二聲</b> → <i>大概</i>是平 —— <b>除非它是古入聲字</b>。這就是雷區。</span></div>
+      <div class="rule"><span class="n">三</span>
+        <span>拿不準就查：<a href="https://sou-yun.cn/" target="_blank" rel="noopener">搜韻</a>或
+        <a href="https://www.zdic.net/" target="_blank" rel="noopener">漢典</a>的平水韻歸部，是唯一的裁判。
+        絕不能用今音「感覺」。</span></div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <b>例：</b>「白」國語讀 bái（二聲），聽起來像平 —— 其實是<b>入聲（十一陌）</b>，鐵打的仄。
+    「國」「別」同病。若你會粵語、閩南語或客語：入聲字在那些方言裡仍帶 -p / -t / -k
+    急促尾音（粵語：白 baak<sup>6</sup>、國 gwok<sup>3</sup>）——這是免費的入聲偵測器。
+  </div>
+
+  <h2>行 <span class="tag">Skill — 試你的手</span></h2>
+
+  <p>
+    下面是你選定的範詩 — 杜甫《春望》，五言律詩，正是你要寫的體裁。
+    <b>點擊每個字</b>，標出你的判斷（點一下 ○ 平，再點 ● 仄，再點清除），
+    全部標完按「檢查」。這四十個字裡埋了<b>七個入聲字</b>和兩個多音字陷阱 —— 杜甫不會手下留情。
+  </p>
+
+  <div class="poem-head">
+    <div class="poem-title">春望<span class="author">杜甫 · 五言律詩</span></div>
+    <cite>文本：<a href="https://cti.lib.virginia.edu/frame.htm" target="_blank" rel="noopener">唐詩三百首 · UVa Etext</a></cite>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="controls">
+    <button class="primary" id="checkBtn">檢　查</button>
+    <button id="resetBtn">重　來</button>
+    <button id="revealBtn" style="display:none">顯示答案</button>
+  </div>
+  <div id="score"></div>
+  <div class="notes" id="notes"></div>
+
+  <div class="rhyme" id="rhyme">
+    <h3>你剛剛驗證了什麼</h3>
+    <p>
+      你親手核對了杜甫的聲律網格 —— 整首詩無一字違律。再看韻腳：
+      <span class="rhymechars">深 心 金 簪</span>
+      　四字同屬平水韻<b>下平十二侵</b>，一韻到底，全押平聲 —— 這是律詩鐵律，之後的課會專門練。
+      （「簪」在侵韻中音 zēn —— 韻書的歸部，常常連讀音的直覺都要重新校準。）
+    </p>
+  </div>
+
+  <div class="next">
+    <h3 style="margin-top:0">下一課預告 · 第二課</h3>
+    <p style="margin-bottom:0">
+      單字平仄只是磚塊。下一課學<b>四種標準句式</b>（仄仄平平仄 …）以及句與句之間的
+      <b>對</b>與<b>黏</b> —— 你今天標出的《春望》網格，會原樣變成你的第一張作詩藍圖。
+    </p>
+  </div>
+
+  <div class="ask">
+    🖋 <b>隨時發問。</b>我是你的老師：任何一個字的歸部、任何一條規則的來歷、
+    為什麼「勝」在這裡讀平聲 —— 回到對話裡問我，或丟一個字來讓我判給你看。
+  </div>
+
+  <footer>
+    <b>本課依據（引用源）：</b>
+    <ul>
+      <li>詩文：《唐詩三百首》卷五 · 五言律詩 ·〈春望〉— <a href="https://cti.lib.virginia.edu/frame.htm" target="_blank" rel="noopener">University of Virginia Etext</a>；全唐詩另見 <a href="https://ctext.org/quantangshi" target="_blank" rel="noopener">ctext.org</a></li>
+      <li>各字平水韻歸部：<a href="https://sou-yun.cn/" target="_blank" rel="noopener">搜韻 · 平水韻表／律詩校驗</a>；單字音韻另可查 <a href="https://www.zdic.net/" target="_blank" rel="noopener">漢典</a></li>
+      <li>平仄與近體詩規則的系統表述：王力《詩詞格律》（中華書局）— 本工作區的權威裁判（見 RESOURCES.md）</li>
+      <li>速查表：<a href="../reference/pingze-cheatsheet.html">平仄速查</a> ·〈<a href="../reference/glossary.html">術語表</a>〉</li>
+    </ul>
+  </footer>
+</div>
+
+<script>
+// ── answer key ────────────────────────────────────────────────────────────
+// p = 平, z = 仄. note = shown after checking (traps & teaching points).
+const POEM = [
+  [ {c:"國",t:"z",note:"入聲・十三職。國語 guó（二聲）聽似平 —— 典型入聲雷。"},
+    {c:"破",t:"z"}, {c:"山",t:"p"}, {c:"河",t:"p"}, {c:"在",t:"z"} ],
+  [ {c:"城",t:"p"}, {c:"春",t:"p"}, {c:"草",t:"z"},
+    {c:"木",t:"z",note:"入聲・一屋。國語四聲也判仄 —— 答案一致，但理由是「入」。"},
+    {c:"深",t:"p",rhyme:true} ],
+  [ {c:"感",t:"z"}, {c:"時",t:"p"}, {c:"花",t:"p"},
+    {c:"濺",t:"z",note:"去聲・十七霰（jiàn）。另有平聲一讀（濺濺，水聲）—— 多音字以義定音。"},
+    {c:"淚",t:"z"} ],
+  [ {c:"恨",t:"z"},
+    {c:"別",t:"z",note:"入聲・九屑。國語 bié（二聲）聽似平 —— 入聲雷。"},
+    {c:"鳥",t:"z"}, {c:"驚",t:"p"}, {c:"心",t:"p",rhyme:true} ],
+  [ {c:"烽",t:"p"}, {c:"火",t:"z"}, {c:"連",t:"p"}, {c:"三",t:"p"},
+    {c:"月",t:"z",note:"入聲・六月。"} ],
+  [ {c:"家",t:"p"}, {c:"書",t:"p"}, {c:"抵",t:"z"}, {c:"萬",t:"z"},
+    {c:"金",t:"p",rhyme:true} ],
+  [ {c:"白",t:"z",note:"入聲・十一陌。國語 bái（二聲）聽似平 —— 全詩最著名的入聲雷。"},
+    {c:"頭",t:"p"}, {c:"搔",t:"p"},
+    {c:"更",t:"z",note:"多音字：作「更加」解讀去聲（gèng）→ 仄；作「三更／變更」讀平（gēng）。此處「更短」取去聲。"},
+    {c:"短",t:"z"} ],
+  [ {c:"渾",t:"p"},
+    {c:"欲",t:"z",note:"入聲・二沃。"},
+    {c:"不",t:"z",note:"入聲・五物。"},
+    {c:"勝",t:"p",note:"反向陷阱：國語 shèng（四聲）似仄 —— 但「不勝」＝承受不起，讀 shēng，平聲・下平十蒸。以義定音。"},
+    {c:"簪",t:"p",rhyme:true} ],
+];
+
+const grid = document.getElementById("grid");
+const notesEl = document.getElementById("notes");
+const scoreEl = document.getElementById("score");
+const rhymeEl = document.getElementById("rhyme");
+const revealBtn = document.getElementById("revealBtn");
+const MARKS = {"": "—", p:"○", z:"●"};
+let cells = [];
+
+POEM.forEach((line, li) => {
+  const row = document.createElement("div");
+  row.className = "line";
+  line.forEach((ch) => {
+    const cell = document.createElement("div");
+    cell.className = "char"; cell.dataset.state = "";
+    cell.innerHTML = `<div class="zi">${ch.c}</div><div class="mark">—</div>`;
+    cell.addEventListener("click", () => {
+      const next = {"":"p", p:"z", z:""}[cell.dataset.state];
+      setState(cell, next);
+      cell.classList.remove("ok","no");
+    });
+    row.appendChild(cell);
+    cells.push({cell, data: ch});
+  });
+  const punct = document.createElement("div");
+  punct.className = "punct";
+  punct.textContent = (li % 2 === 0) ? "，" : "。";
+  row.appendChild(punct);
+  grid.appendChild(row);
+});
+
+function setState(cell, s){
+  cell.dataset.state = s;
+  cell.querySelector(".mark").textContent = MARKS[s];
+  cell.classList.toggle("m-ping", s==="p");
+  cell.classList.toggle("m-ze", s==="z");
+}
+
+document.getElementById("checkBtn").addEventListener("click", () => {
+  let right = 0, marked = 0;
+  const wrongNotes = [];
+  cells.forEach(({cell, data}) => {
+    const s = cell.dataset.state;
+    if (s) marked++;
+    cell.classList.remove("ok","no");
+    if (s === data.t) { right++; cell.classList.add("ok"); }
+    else if (s) {
+      cell.classList.add("no");
+      wrongNotes.push(data);
+    }
+  });
+  if (marked < cells.length) {
+    scoreEl.innerHTML = `還有 <b>${cells.length - marked}</b> 個字未標 —— 每個字都必須表態，律詩不留空格。`;
+    return;
+  }
+  revealBtn.style.display = "inline-block";
+  const pct = Math.round(right / cells.length * 100);
+  let verdict;
+  if (right === 40) verdict = "四十字全中 —— 你已經可以親手給唐人「校律」了。直接進第二課。";
+  else if (right >= 33) verdict = "底子很穩 —— 錯的幾乎必然是入聲雷。看下面的講解，再按「重來」清掉錯字重標。";
+  else verdict = "正常的第一次 —— 入聲就是這麼陰。讀講解，開「平仄速查」對照，重來一次。";
+  scoreEl.innerHTML = `<b>${right} / 40</b>（${pct}%）　${verdict}`;
+  // teaching notes: traps among the wrong ones first, then any remaining traps
+  notesEl.innerHTML = "";
+  const noted = new Set();
+  const addNote = (d) => {
+    if (!d.note || noted.has(d.c)) return;
+    noted.add(d.c);
+    notesEl.insertAdjacentHTML("beforeend",
+      `<div class="note"><span class="zi">${d.c}</span>${d.note}
+       <span class="cat">${d.t==="p"?"→ 平 ○":"→ 仄 ●"}</span></div>`);
+  };
+  wrongNotes.forEach(addNote);
+  if (right === 40) cells.forEach(({data}) => addNote(data)); // perfect score still sees the lore
+  notesEl.classList.add("show");
+  if (right === 40) rhymeEl.classList.add("show");
+});
+
+revealBtn.addEventListener("click", () => {
+  cells.forEach(({cell, data}) => { setState(cell, data.t); cell.classList.remove("no"); cell.classList.add("ok"); });
+  notesEl.innerHTML = "";
+  cells.filter(x=>x.data.note).forEach(({data}) => {
+    notesEl.insertAdjacentHTML("beforeend",
+      `<div class="note"><span class="zi">${data.c}</span>${data.note}
+       <span class="cat">${data.t==="p"?"→ 平 ○":"→ 仄 ●"}</span></div>`);
+  });
+  notesEl.classList.add("show");
+  rhymeEl.classList.add("show");
+  scoreEl.innerHTML = "答案已顯示 —— 用「重來」自己再標一遍，標到全對為止。";
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  cells.forEach(({cell}) => { setState(cell, ""); cell.classList.remove("ok","no"); });
+  scoreEl.textContent = ""; notesEl.classList.remove("show"); notesEl.innerHTML = "";
+  rhymeEl.classList.remove("show");
+});
+</script>
+</body>
+</html>

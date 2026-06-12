@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>平仄速查 | 唐詩 /teach 參考</title>
+<style>
+  :root{--ink:#23201b;--muted:#6f6557;--paper:#faf5ec;--card:#fffdf8;--rule:#e3d8c4;
+    --cinnabar:#9e2b25;--jade:#2e6e5e;--gold:#9a7b2d;
+    --serif:"Source Han Serif TC","Noto Serif TC","Songti TC","PMingLiU","MingLiU",Georgia,serif}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.8}
+  .wrap{max-width:760px;margin:0 auto;padding:42px 22px 80px}
+  .kicker{letter-spacing:.4em;text-transform:uppercase;font-size:.68rem;color:var(--cinnabar);
+    font-weight:700;font-family:ui-sans-serif,system-ui,sans-serif}
+  h1{font-size:1.9rem;margin:.2em 0 .6em;letter-spacing:.1em}
+  h2{font-size:1.15rem;margin:34px 0 8px;letter-spacing:.1em;border-bottom:1px solid var(--rule);
+    padding-bottom:6px}
+  p{margin:.4em 0}
+  table{width:100%;border-collapse:collapse;background:var(--card);font-size:.97rem;margin:10px 0}
+  th,td{border:1px solid var(--rule);padding:8px 12px;text-align:left;vertical-align:top}
+  th{background:#f4ecdc;font-weight:600;letter-spacing:.06em}
+  .ping{color:var(--jade);font-weight:700} .ze{color:var(--cinnabar);font-weight:700}
+  .chars{font-size:1.25rem;letter-spacing:.32em;line-height:2}
+  .small{font-size:.85rem;color:var(--muted)}
+  a{color:var(--cinnabar)}
+  .box{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:12px 18px;margin:12px 0}
+  @media print{body{background:#fff} .wrap{padding-top:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">唐詩 · 參考 · 隨第一課建立</div>
+  <h1>平仄速查</h1>
+
+  <h2>一、記號與分類</h2>
+  <table>
+    <tr><th>中古四聲</th><th>近體詩分類</th><th>記號</th></tr>
+    <tr><td>平聲</td><td class="ping">平</td><td class="ping">○</td></tr>
+    <tr><td>上聲・去聲・入聲</td><td class="ze">仄</td><td class="ze">●</td></tr>
+    <tr><td class="small" colspan="3">句式表中「可平可仄」記作 ◐（第二課起使用）。</td></tr>
+  </table>
+
+  <h2>二、用國語讀音判平仄 — 判斷流程</h2>
+  <table>
+    <tr><th>國語聲調</th><th>結論</th></tr>
+    <tr><td>三聲、四聲</td><td><span class="ze">仄</span>　（安全，無一例外）</td></tr>
+    <tr><td>一聲、二聲</td><td>大概<span class="ping">平</span> —— <b>但必須排除古入聲字</b>（見下表）。拿不準 → 查韻書。</td></tr>
+  </table>
+  <div class="box">
+    會粵語／閩南語／客語者：入聲字在這些方言中仍收 <b>-p / -t / -k</b> 促音尾
+    （粵：白 baak⁶・國 gwok³・十 sap⁶）—— 內建的入聲偵測器，比任何口訣可靠。
+  </div>
+
+  <h2>三、常用入聲字表（今讀易誤判者優先）</h2>
+  <table>
+    <tr><th style="width:11em">今讀一・二聲<br><span class="small">＝最危險，聽似平實為仄</span></th>
+        <td class="chars ze">一　七　八　十　白　國　學　讀　獨　竹　足　出　失　急　習　集　福　別　答　合　達　結　絕　節　接　蝶　石　黑　屋　說　殺　局　哭　切</td></tr>
+    <tr><th>今讀三・四聲<br><span class="small">＝判仄不會錯，但須知其為「入」</span></th>
+        <td class="chars ze">不　日　月　木　目　雪　物　落　各　角　覺　髮　滅　鐵　血　客　隔　笛　寂　壁　滴　入</td></tr>
+  </table>
+  <p class="small">此表為高頻速查，非全表 —— 全表見
+    <a href="https://sou-yun.cn/" target="_blank" rel="noopener">搜韻・平水韻（入聲十七部）</a>。</p>
+
+  <h2>四、多音字警戒表（以義定音，平仄隨之）</h2>
+  <table>
+    <tr><th>字</th><th><span class="ping">平</span> 讀</th><th><span class="ze">仄</span> 讀</th></tr>
+    <tr><td>勝</td><td>shēng・承受（不勝簪）</td><td>shèng・勝利</td></tr>
+    <tr><td>更</td><td>gēng・三更／變更</td><td>gèng・更加（白頭搔更短的「更」）</td></tr>
+    <tr><td>看</td><td>kān・看守，詩中「看」常讀平</td><td>kàn・觀看（兩讀均入詩，依格律取捨）</td></tr>
+    <tr><td>思</td><td>sī・動詞，思考</td><td>sì（去）・名詞，情思</td></tr>
+    <tr><td>騎</td><td>qí・動詞，騎乘</td><td>jì（去）・名詞，車騎</td></tr>
+    <tr><td>過</td><td>guō・經過（詩中常平）</td><td>guò・過失／越過（兩讀均入詩）</td></tr>
+  </table>
+
+  <h2>五、裁判工具</h2>
+  <p>
+    歸部裁判：<a href="https://sou-yun.cn/" target="_blank" rel="noopener">搜韻</a>（平水韻表＋律詩校驗）·
+    <a href="https://www.zdic.net/" target="_blank" rel="noopener">漢典</a>（單字音韻）。
+    成詩後必過搜韻「律詩校驗」再交人評。
+  </p>
+  <p class="small">句式表（四種標準句式・黏對・孤平）將隨第二課加入本參考區。
+    術語見〈<a href="glossary.html">術語表</a>〉。</p>
+</div>
+</body>
+</html>
