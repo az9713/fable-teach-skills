@@ -22,6 +22,14 @@
   押韻 and 平水韻 groups → first 五絕 as scaffolding exercise (not the goal, just practice) →
   對仗 → composing a full 五律 → 拗救 → 用典 & imagery → 七律.
 
+## Published page language policy
+Published lessons (GitHub Pages) carry English for international visitors.
+Your personal learning path stays Traditional Chinese–first; MISSION.md and
+in-session teaching remain in 繁體 with no translation crutch.
+Implementation: 中文|EN toggle on each HTML lesson; literal gloss (not
+literary translation) for the poem, so the characters stay legible as
+learning objects.
+
 ## Open questions to probe next session
 - Does the learner know any 入聲-preserving topolect (Cantonese / Minnan / Hakka)? If yes,
   入聲 detection becomes nearly free — ask, and record the answer.
